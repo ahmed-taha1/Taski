@@ -29,7 +29,7 @@ class TopIcon extends StatelessWidget {
         horizontalSpace(10),
         Text(
           'Taski',
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
             color: Theme.of(context).primaryColor,
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:taski/features/tasks/data/tasks_repo.dart';
 import 'package:taski/features/tasks/logic/tasks_cubit.dart';
 import 'package:taski/features/tasks/ui/tasks_view.dart';
 
@@ -11,7 +11,10 @@ class Taski extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => TasksCubit()),
+        BlocProvider(
+          create: (context) => TasksCubit(TasksRepo()),
+          lazy: false,
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

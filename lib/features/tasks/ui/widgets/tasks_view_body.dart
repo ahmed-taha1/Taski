@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/core/helpers/spacing.dart';
 import 'package:taski/features/tasks/logic/tasks_cubit.dart';
-import 'package:taski/features/tasks/ui/widgets/task_widget.dart';
+import 'package:taski/features/tasks/ui/widgets/tasks_list.dart';
 import 'package:taski/features/tasks/ui/widgets/top_icon.dart';
-import 'package:taski/features/tasks/ui/widgets/welcome%20msg.dart';
-
-import '../../../../core/models/Task.dart';
+import 'package:taski/features/tasks/ui/widgets/welcome_msg.dart';
 
 class TasksViewBody extends StatelessWidget {
   const TasksViewBody({super.key});
@@ -24,21 +22,27 @@ class TasksViewBody extends StatelessWidget {
             const TopIcon(),
             verticalSpace(20),
             const WelcomeMsg(),
-            Text(
-              'You\'ve got ${context.read<TasksCubit>().tasks.length} tasks to do today.',
-              style: TextStyle(
-                fontSize: 15,
-                color: Theme.of(context).secondaryHeaderColor,
-              ),
+            BlocBuilder<TasksCubit, TasksState>(
+              builder: (context, state) {
+                int tasksCnt = context
+                    .read<TasksCubit>()
+                    .tasks
+                    .where((task) => task.isCompleted == 0)
+                    .toList()
+                    .length;
+                return Text(
+                  'You\'ve got $tasksCnt tasks to do today.',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Theme.of(context).secondaryHeaderColor,
+                  ),
+                );
+              },
             ),
             verticalSpace(20),
-            const TaskWidget(title: 'Title', description: 'description',),
-            verticalSpace(15),
-            const TaskWidget(title: 'Title', description: 'description',),
-            verticalSpace(15),
-            const TaskWidget(title: 'Title', description: 'description',),
-            verticalSpace(15),
-            const TaskWidget(title: 'Title', description: 'description',),
+            const Expanded(
+              child: TasksList(),
+            ),
           ],
         ),
       ),
