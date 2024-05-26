@@ -36,7 +36,7 @@ Here are some screenshots of the Taskii app in action:
 
     ```sh
     git clone https://github.com/ahmed-taha1/Taski.git
-    cd taskii
+    cd Taski
     ```
 
 2. **Install dependencies:**
