@@ -7,16 +7,16 @@ class WelcomeMsg extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: 'Welcome, ',
+        text: 'Keep',
         children: [
           TextSpan(
-            text: 'Ahmed',
-            style: Theme.of(context).textTheme.headline6?.copyWith(
+            text: ' Going',
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   color: Theme.of(context).indicatorColor,
                 ),
           ),
         ],
-        style: Theme.of(context).textTheme.headline6?.copyWith(
+        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               color: Theme.of(context).primaryColor,
             ),
       ),

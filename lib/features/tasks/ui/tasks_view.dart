@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taski/features/tasks/logic/tasks_cubit.dart';
 import 'package:taski/features/tasks/ui/widgets/tasks_view_body.dart';
-import 'package:taski/features/tasks/ui/widgets/bottom_sheet.dart';
 
 class TasksView extends StatelessWidget {
   const TasksView({super.key});

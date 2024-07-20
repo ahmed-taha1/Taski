@@ -41,27 +41,36 @@ class TaskWidget extends StatelessWidget {
                     size: 25,
                   ),
                 ),
-                Text(
-                  task.title,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Theme.of(context).primaryColor,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        task.title,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                      if (task.description.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          task.description,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Theme.of(context).secondaryHeaderColor,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 5,
+                        ),
+                      ],
+                    ],
                   ),
                 ),
               ],
             ),
-            task.description.isEmpty
-                ? const SizedBox.shrink()
-                : Padding(
-                    padding: const EdgeInsets.only(left: 45),
-                    child: Text(
-                      task.description,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Theme.of(context).secondaryHeaderColor,
-                      ),
-                    ),
-                  ),
           ],
         ),
       ),

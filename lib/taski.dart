@@ -18,7 +18,7 @@ class Taski extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Taski',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -27,6 +27,10 @@ class Taski extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           indicatorColor: const Color(0xFF0F77F0),
           // textTheme: GoogleFonts.getFont('Poppins').textTheme,
+          textSelectionTheme: const TextSelectionThemeData(
+            cursorColor: Color(0xFF0F77F0),
+            selectionHandleColor: Color(0xFF0F77F0),
+          )
         ),
         home: const TasksView(),
       ),
